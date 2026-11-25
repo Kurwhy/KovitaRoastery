@@ -2,7 +2,7 @@ import { createPortal } from 'react-dom'
 import { CheckCircle2, Printer } from 'lucide-react'
 import { Modal } from '../ui/Modal'
 import { Button } from '../ui/Button'
-import { outlet } from '../../data/outlet'
+import { brandName } from '../../data/brand'
 import {
   formatRupiah,
   gulaLabel,
@@ -17,10 +17,7 @@ function ReceiptContent({ transaction }: { transaction: Transaction }) {
   return (
     <div className="receipt-content mx-auto w-full max-w-sm bg-white p-5 text-zinc-900">
       <div className="text-center">
-        <p className="text-lg font-bold">{outlet.nama}</p>
-        <p className="mt-1 text-xs leading-relaxed text-zinc-600">
-          {outlet.alamat}
-        </p>
+        <p className="text-lg font-bold">{brandName}</p>
       </div>
 
       <div className="receipt-divider my-3 border-t border-dashed border-zinc-300" />

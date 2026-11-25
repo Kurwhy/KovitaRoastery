@@ -4,7 +4,7 @@
 
 # Kovita Roastery (Kovita POS)
 
-Kovita Roastery adalah aplikasi kasir berbasis browser untuk cafe yang dirancang dipakai di tablet atau laptop. Aplikasi ini menggabungkan katalog menu, pemilihan varian minuman, keranjang, pembayaran tunai, pembayaran QRIS melalui Midtrans, riwayat transaksi harian, rekap kas, dan pengelolaan menu dalam satu alur kerja.
+Kovita Roastery adalah aplikasi kasir berbasis browser untuk cafe yang dirancang dipakai di tablet atau laptop. Aplikasi ini menggabungkan katalog menu, pemilihan varian minuman, keranjang, pembayaran tunai, pembayaran QRIS melalui Midtrans, riwayat transaksi, laporan penjualan harian dan bulanan, rekap kas, dan pengelolaan menu dalam satu alur kerja.
 
 Aplikasi dibangun sebagai dua bagian:
 
@@ -237,7 +237,7 @@ Halaman laporan hanya mengizinkan pemilihan tanggal dan bulan dalam 2 bulan tera
 KovitaRoastery/
   src/                     Frontend React
     components/            Komponen UI, layout, menu, keranjang, pembayaran, laporan
-    data/                  Data outlet
+    data/                  Data brand
     hooks/                 Hook kecil seperti judul dokumen
     img/logo/              Logo Kovita
     lib/                   API client, mapper, format, tanggal, perhitungan
@@ -245,6 +245,7 @@ KovitaRoastery/
     stores/                State auth, menu, addon, dan keranjang
     types/                 Tipe TypeScript
   public/                  Asset publik frontend, termasuk favicon logo
+  docs/screenshots/         Gambar dokumentasi halaman
   backend/                 Laravel 11 REST API
     app/Http/Controllers/  Controller API
     app/Http/Middleware/   Middleware role
@@ -377,6 +378,10 @@ VITE_API_BASE_URL=http://127.0.0.1:8001/api
 
 Halaman login adalah satu-satunya halaman yang dapat dibuka tanpa sesi.
 
+![Halaman Login Kovita Roastery](docs/screenshots/login.jpg)
+
+*Tampilan halaman login.*
+
 Isi halaman:
 
 - Logo Kovita Roastery.
@@ -406,6 +411,10 @@ Server membatasi percobaan login menjadi 5 kali per menit per alamat IP.
 ### 2. `/kasir`
 
 Layar transaksi adalah halaman utama kasir.
+
+![Layar Kasir](docs/screenshots/kasir.jpg)
+
+*Layar kasir dengan katalog, keranjang, dan tipe pesanan.*
 
 Tata letak:
 
@@ -441,6 +450,10 @@ Pop-up varian berisi:
 - Total harga item yang berubah otomatis.
 - Tombol Tambah ke Keranjang.
 
+![Pop-up Varian](docs/screenshots/varian.jpg)
+
+*Pop-up kustomisasi varian dan add-on.*
+
 Panel kanan berisi:
 
 - Daftar item.
@@ -467,6 +480,10 @@ Pembayaran tunai:
 - Kembalian otomatis.
 - Tombol Selesaikan Pembayaran.
 
+![Modal Pembayaran](docs/screenshots/pembayaran.jpg)
+
+*Modal pemilihan metode pembayaran.*
+
 Pembayaran QRIS:
 
 - Membuat transaksi pending.
@@ -485,6 +502,10 @@ Setelah pembayaran selesai:
 ### 3. `/riwayat`
 
 Halaman riwayat menampilkan transaksi dan laporan penjualan berdasarkan zona waktu Asia/Jakarta.
+
+![Laporan Harian](docs/screenshots/riwayat-harian.jpg)
+
+*Laporan penjualan harian untuk Pemilik.*
 
 Untuk Kasir:
 
@@ -520,11 +541,15 @@ Pada mode Bulanan:
 - Daftar menampilkan rekap per hari berisi transaksi lunas, Tunai, QRIS, dan total omzet.
 - Tombol Cetak Laporan mencetak laporan bulanan.
 
+![Laporan Bulanan](docs/screenshots/riwayat-bulanan.jpg)
+
+*Laporan penjualan bulanan dengan rekap per hari.*
+
 Data maksimal 2 bulan terakhir. Tanggal atau bulan yang lebih lama ditolak oleh API dan dibatasi pada pemilih tanggal.
 
 Laporan cetak berisi:
 
-- Nama dan alamat outlet.
+- Nama brand Kovita Roastery.
 - Jenis laporan.
 - Tanggal atau bulan laporan.
 - Total omzet.
@@ -535,6 +560,14 @@ Laporan cetak berisi:
 - Waktu cetak.
 
 Cetak memakai dialog print browser dan hanya mencetak area laporan, tanpa header aplikasi dan tombol.
+
+![Cetak Laporan Harian](docs/screenshots/cetak-harian.jpg)
+
+*Contoh hasil cetak laporan harian.*
+
+![Cetak Laporan Bulanan](docs/screenshots/cetak-bulanan.jpg)
+
+*Contoh hasil cetak laporan bulanan.*
 
 Status transaksi yang dapat muncul di daftar layar:
 
@@ -547,6 +580,10 @@ Hanya transaksi Lunas yang dihitung ke omzet dan laporan cetak.
 ### 4. `/menu`
 
 Halaman Kelola Menu hanya dapat diakses oleh Pemilik.
+
+![Kelola Menu](docs/screenshots/kelola-menu.jpg)
+
+*Halaman Kelola Menu dengan 24 menu.*
 
 Isi halaman:
 

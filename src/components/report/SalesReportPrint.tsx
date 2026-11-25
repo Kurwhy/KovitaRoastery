@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom'
-import { outlet } from '../../data/outlet'
+import { brandName } from '../../data/brand'
 import {
   formatRupiah,
   metodeBayarLabel,
@@ -33,8 +33,7 @@ export function SalesReportPrint({
       <div className="report-page">
         <header className="report-header">
           <div>
-            <p className="report-brand">Kovita Roastery</p>
-            <p className="report-address">{outlet.alamat}</p>
+            <p className="report-brand">{brandName}</p>
           </div>
           <div className="report-meta">
             <p>Laporan Penjualan</p>

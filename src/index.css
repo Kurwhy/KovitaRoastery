@@ -170,12 +170,6 @@
     font-weight: 700;
   }
 
-  #sales-report-print .report-address {
-    margin-top: 3px;
-    font-size: 10px;
-    color: #555555 !important;
-  }
-
   #sales-report-print .report-meta {
     text-align: right;
     font-size: 10px;

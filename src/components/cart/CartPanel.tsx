@@ -174,7 +174,7 @@ export function CartPanel({ onPay, notice, availabilityError }: CartPanelProps) 
   return (
     <aside
       aria-label="Keranjang pesanan"
-      className="flex flex-col overflow-hidden rounded-xl border border-line bg-slate shadow-panel md:sticky md:top-4 md:max-h-[calc(100dvh-2rem)]"
+      className="flex flex-col overflow-hidden rounded-xl border border-line bg-slate shadow-panel md:sticky md:top-4 md:max-h-[calc(100dvh-10rem)]"
     >
       <div className="shrink-0 border-b border-line p-4">
         <div className="mb-4 flex items-center justify-between gap-3">

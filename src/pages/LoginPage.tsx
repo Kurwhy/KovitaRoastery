@@ -151,7 +151,7 @@ export function LoginPage() {
         </section>
 
         <p className="mt-6 text-center text-label text-muted">
-          Akses internal. Hubungi pemilik outlet jika akun belum aktif.
+          Akses internal. Hubungi pemilik jika akun belum aktif.
         </p>
       </div>
     </main>
