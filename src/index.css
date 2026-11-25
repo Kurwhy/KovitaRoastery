@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    background-color: #121212;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply min-h-screen bg-charcoal font-sans text-body text-ink antialiased;
+    font-variant-numeric: tabular-nums;
+  }
+
+  button,
+  a,
+  select,
+  [role='button'],
+  [role='switch'] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  select:disabled {
+    cursor: not-allowed;
+  }
+
+  :focus-visible {
+    outline: 2px solid #d4af37;
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: #d4af37;
+    color: #121212;
+  }
+
+  dialog {
+    color: inherit;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes modal-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-backdrop {
+  animation: modal-backdrop-in 150ms ease-out;
+}
+
+.modal-panel {
+  animation: modal-panel-in 180ms ease-out;
+}
+
+#receipt-print,
+#sales-report-print {
+  display: none;
+}
+
+@media print {
+  @page {
+    margin: 4mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  #receipt-print,
+  #receipt-print *,
+  #sales-report-print,
+  #sales-report-print * {
+    visibility: visible !important;
+  }
+
+  #receipt-print {
+    display: block !important;
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    max-width: 72mm;
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+  #receipt-print * {
+    color: #111111 !important;
+  }
+
+  #receipt-print .receipt-divider {
+    border-color: #b8b8b8 !important;
+  }
+
+  #sales-report-print {
+    display: block !important;
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+  #sales-report-print * {
+    color: #111111 !important;
+  }
+
+  #sales-report-print .report-page {
+    width: 100%;
+    max-width: 190mm;
+    margin: 0 auto;
+    padding: 6mm;
+    background: #ffffff !important;
+  }
+
+  #sales-report-print .report-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #111111;
+  }
+
+  #sales-report-print .report-brand {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  #sales-report-print .report-address {
+    margin-top: 3px;
+    font-size: 10px;
+    color: #555555 !important;
+  }
+
+  #sales-report-print .report-meta {
+    text-align: right;
+    font-size: 10px;
+  }
+
+  #sales-report-print .report-meta p:first-child {
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  #sales-report-print .report-period {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 11px;
+  }
+
+  #sales-report-print .report-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  #sales-report-print .report-summary > div {
+    padding: 8px;
+    border: 1px solid #bbbbbb;
+  }
+
+  #sales-report-print .report-summary span {
+    display: block;
+    font-size: 9px;
+    color: #555555 !important;
+  }
+
+  #sales-report-print .report-summary strong {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  #sales-report-print .report-section {
+    margin-bottom: 12px;
+  }
+
+  #sales-report-print .report-section h2 {
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  #sales-report-print .report-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  #sales-report-print .report-table th,
+  #sales-report-print .report-table td {
+    padding: 5px 6px;
+    border: 1px solid #bbbbbb;
+    font-size: 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  #sales-report-print .report-table th {
+    background: #f0f0f0 !important;
+    font-weight: 700;
+  }
+
+  #sales-report-print .report-table tr {
+    break-inside: avoid;
+  }
+
+  #sales-report-print .report-amount {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  #sales-report-print .report-empty {
+    color: #555555 !important;
+    font-size: 10px;
+  }
+
+  #sales-report-print .report-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 8px;
+    border-top: 1px solid #cccccc;
+    font-size: 9px;
+    color: #555555 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
