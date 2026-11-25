@@ -11,13 +11,6 @@ Aplikasi dibangun sebagai dua bagian:
 - Frontend React untuk layar kasir.
 - Backend Laravel REST API untuk autentikasi, perhitungan transaksi, data menu, riwayat, rekap, dan integrasi Midtrans.
 
-Outlet contoh yang digunakan:
-
-```text
-Kovita Roastery
-Jl. Dago Atas No. 12, Bandung
-```
-
 ## Daftar Isi
 
 - [Status Proyek](#status-proyek)
